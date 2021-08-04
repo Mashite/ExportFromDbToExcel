@@ -47,7 +47,7 @@ namespace ExportFromDbToExcel
 
             List<string> results = context.Database.SqlQuery<string>("SELECT * FROM "+tblName).ToList();
 
-         
+         //denem
             
 
         }
