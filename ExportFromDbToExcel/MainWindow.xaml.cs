@@ -31,17 +31,24 @@ namespace ExportFromDbToExcel
         {
             //Get Tables name from entityframework
             List<string> tableNames = new List<string>();
+
             foreach (var propertyInfo in context.GetType().GetProperties())
             {
                 tableNames.Add(propertyInfo.Name);
                 lbxTables.Items.Add(propertyInfo.Name);
             }
 
-           
+
         }
 
         private void btnExport_Click(object sender, RoutedEventArgs e)
         {
+            string tblName = lbxTables.SelectedValue.ToString();
+
+            List<string> results = context.Database.SqlQuery<string>("SELECT * FROM "+tblName).ToList();
+
+         
+            
 
         }
     }
